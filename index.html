@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <title>Sudenaz Civelek</title>
+</head>
+<body>
+    <section id="section1">
+        <p>sudenaz</p>
+    </section>
+    
+    <nav>
+        <div class="nav__content">
+            <div class="logo"> <a href="#">Sudenaz</a></div>
+            <label for="check" class="checkbox">
+                <i class="ri-menu-line"></i>
+            </label>
+            <input type="checkbox" name="check" id="check">
+            <ul>
+                <button id="returnHomeButton">Home</button>
+                <a href="#" id="aboutLink">About</a>
+                <button id="openCVButton">Open CV</button>
+                
+                <a href="#" id="contentLink">Content</a>
+
+            </ul>
+        </div>
+    </nav>
+    <script>
+        // Ana sayfaya dönme işlevi
+        function returnToHomePage() {
+            document.getElementById("section1").style.display = "block"; // Ana sayfa bölümünü göster
+            document.getElementById("aboutSection").style.display = "none"; // About bölümünü gizle
+            document.getElementById("openCVSection").style.display = "none"; // Open CV bölümünü gizle
+            document.getElementById("contactSection").style.display = "none"; // Contact bölümünü gizle
+        }
+    
+        // Ana sayfaya dön butonuna tıklanınca çalışacak kod
+        document.getElementById("returnHomeButton").addEventListener("click", returnToHomePage);
+    </script>
+    
+    <script>
+        const contentLink = document.getElementById("contentLink");
+    
+        contentLink.addEventListener("click", () => {
+            const email = "nazzcivelek@gmail.com"; // E-posta adresinizi buraya ekleyin
+            contentLink.innerHTML = email;
+            contentLink.href = "mailto:" + email;
+        });
+    </script>
+    <script>
+        const portfolioLink = document.getElementById("portfolioLink");
+        const openCVButton = document.getElementById("openCVButton");
+    
+        // CV dosyasının yolunu buraya ekleyin
+        const cvFilePath = "/Users/sude/Desktop/CV Sudenaz Civelek.pdf";
+    
+        openCVButton.addEventListener("click", () => {
+            window.open(cvFilePath, "_blank");
+        });
+    </script>
+    
+    <script>
+        const aboutLink = document.getElementById("aboutLink");
+        const aboutText = `Ben bilgisayar müdendisliği 3. sınıf öğresiyim. Daha önce 3 farklı şirkette çalıştım. Yazılım alanında kendimi geliştirmeyi hedefliyorum.`;
+        let aboutVisible = false;
+    
+        aboutLink.addEventListener("click", (e) => {
+            e.preventDefault();
+            
+            if (!aboutVisible) {
+                aboutLink.innerHTML = aboutText;
+                aboutVisible = true;
+            } else {
+                aboutLink.innerHTML = "About";
+                aboutVisible = false;
+            }
+        });
+    </script>
+    
+    <section class="section">
+        <div class="section__container">
+            <div class="content">
+                <p class="subtitle">HELLO</p>
+                <h1 class="title">
+                    I'm <span>Sudenaz<br>a</span> Computer Engineer
+                </h1>
+                <p class="description">
+                    Welcome to my Computer Engineer portfolio!
+                </p>
+                <div class="action__btns">
+                    <button class="hire__me" id="hireMeButton">Hire Me</button>
+                    <button class="portfolio">Portfolio</button>
+                </div>
+                <div id="socialLinks" style="display: none;">
+                    <a href="https://github.com/sudenazcivelek" target="_blank">
+                        <i class="ri-github-fill"></i> GitHub
+                    </a>
+                    <br>
+                    <a href="https://www.linkedin.com/in/sudenaz-civelek-34a0b5287/" target="_blank">
+                        <i class="ri-linkedin-box-fill"></i> LinkedIn
+                    </a>
+                </div>
+            </div>
+            <div class="image">
+                <img src="/Users/sude/Desktop/assets/Unknown.png" alt="profile">
+            </div>
+        </div>
+    </section>
+    <script>
+        // "Hire Me" düğmesini seç
+        const hireMeButton = document.getElementById("hireMeButton");
+
+        // GitHub ve LinkedIn bağlantılarını seç
+        const socialLinks = document.getElementById("socialLinks");
+
+        // "Hire Me" düğmesine tıklanırsa bağlantıları görünür hale getir
+        hireMeButton.addEventListener("click", () => {
+            socialLinks.style.display = "block";
+        });
+    </script>
+</body>
+</html>
+
